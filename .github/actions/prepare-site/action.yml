@@ -3,9 +3,6 @@ description: Collect and apply images from the legacy JAFLEX website
 runs:
   using: composite
   steps:
-    - name: Collect original images
+    - name: Prepare original images
       shell: bash
-      run: python scripts/import_legacy_assets.py
-    - name: Apply original images
-      shell: bash
-      run: python scripts/apply_legacy_assets.py
+      run: python scripts/prepare_site.py
