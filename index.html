@@ -6,24 +6,27 @@
   <title>有限会社ジャフレックス｜JAFLEX Ltd.</title>
   <style>
     body{margin:0;display:grid;place-items:center;min-height:100vh;font-family:Arial,"Noto Sans JP",sans-serif;color:#17367f;background:#fff}
+    .loading{text-align:center;padding:24px}
+    .loading strong{display:block;font-size:22px;margin-bottom:8px}
   </style>
 </head>
 <body>
-  <p>JAFLEX website loading…</p>
+  <div class="loading"><strong>JAFLEX</strong><span>ウェブサイトを読み込んでいます…</span></div>
   <script>
     (async()=>{
+      const base="https://raw.githubusercontent.com/kyungminkim11/jaflex-website/gh-pages/";
       const paths=["site/part-00.txt","site/part-01.txt"];
       const parts=[];
       for(const path of paths){
-        const response=await fetch(path+"?v=20260627");
-        if(!response.ok) throw new Error(path);
+        const response=await fetch(base+path+"?v=20260627-2",{cache:"no-store"});
+        if(!response.ok) throw new Error(path+" "+response.status);
         parts.push(await response.text());
       }
       document.open();
       document.write(parts.join(""));
       document.close();
     })().catch(error=>{
-      document.body.innerHTML="<p>ページの読み込みに失敗しました。再読み込みしてください。</p>";
+      document.body.innerHTML='<div class="loading"><strong>読み込みに失敗しました</strong><span>ブラウザを再読み込みしてください。</span></div>';
       console.error(error);
     });
   </script>
