@@ -1,1 +1,1 @@
-const button=document.querySelector('.menu');const navigation=document.querySelector('.nav');button?.addEventListener('click',()=>{navigation?.classList.toggle('open');});
+const s=document.createElement('link');s.rel='stylesheet';s.href='enhancements.css';document.head.appendChild(s);
