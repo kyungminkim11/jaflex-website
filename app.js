@@ -1,1 +1,1 @@
-const s=document.createElement('link');s.rel='stylesheet';s.href='enhancements.css';document.head.appendChild(s);
+const s=document.createElement('link');s.rel='stylesheet';s.href='enhancements.css?v=20260627';document.head.appendChild(s);const b=document.querySelector('.menu');const n=document.querySelector('.nav');b?.addEventListener('click',()=>{n?.classList.toggle('open');b.setAttribute('aria-expanded',n?.classList.contains('open')?'true':'false')});
